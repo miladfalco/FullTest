@@ -32,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
     Button btn2;
     @BindView(R.id.btn_call)
     Button btn3;
-
+    @BindView(R.id.btn_4)
+    Button btn4;
+    @BindView(R.id.btn_5)
+    Button btn5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                         List<User> getUser = response.body().getGetUser();
                         User user = getUser.get(0);
                         String firstName = user.getFirstName();
-                        DialogCall dialogCall = new DialogCall(firstName,clickEventHandler,MainActivity.this);
+                        DialogCall dialogCall = new DialogCall(firstName, clickEventHandler, MainActivity.this);
                         dialogCall.dialogBuild();
                     }
 
@@ -77,6 +80,22 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+            }
+        });
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TestOneActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BotikActivity.class);
+                startActivity(intent);
             }
         });
     }

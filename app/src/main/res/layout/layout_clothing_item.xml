@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/clothing_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        tools:src="@drawable/pic1_clothes" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/clothing_image">
+
+
+        <TextView
+            android:id="@+id/clothing_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:textColor="#FFF"
+            tools:text="title cloth" />
+
+        <TextView
+            android:id="@+id/clothing_count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/clothing_title"
+            android:layout_alignParentRight="true"
+            android:textColor="#fff"
+            tools:text="700" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/clothing_title"
+            android:layout_alignTop="@+id/clothing_count_text"
+            android:layout_alignBottom="@+id/clothing_count_text"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@+id/clothing_count_text"
+            android:src="@drawable/ic_action_ic_views_white" />
+
+    </RelativeLayout>
+</RelativeLayout>

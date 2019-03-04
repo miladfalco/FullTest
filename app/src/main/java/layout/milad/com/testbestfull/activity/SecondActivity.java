@@ -33,10 +33,7 @@ public class SecondActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
         progressDialog.show();
-
         initData();
-
-
     }
 
     private void initViews() {

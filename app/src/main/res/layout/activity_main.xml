@@ -13,13 +13,12 @@
         android:orientation="vertical">
 
 
-
         <Button
             android:id="@+id/btn_get_all_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="200dp"
             android:background="#FF9800"
             android:text="get data users"/>
 
@@ -40,6 +39,24 @@
             android:layout_marginTop="25dp"
             android:background="#FF9800"
             android:text="dialog"/>
+
+        <Button
+            android:id="@+id/btn_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="#FF9800"
+            android:text="send"/>
+
+        <Button
+            android:id="@+id/btn_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="#FF9800"
+            android:text="Frag one"/>
 
 
 

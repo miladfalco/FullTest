@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.TestOneActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="name"
+            android:layout_marginTop="200dp" />
+
+        <EditText
+            android:id="@+id/edit_family"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="family"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:id="@+id/edit_int"
+            android:inputType="number"
+            android:hint="phone number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="#FFC107"
+            android:text="Send Data" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

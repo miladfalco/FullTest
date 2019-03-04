@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ListOfSongsActivity"></activity>
+        <activity android:name=".activity.BotikActivity"></activity>
+        <activity android:name=".activity.TestTwoActivity" />
+        <activity android:name=".activity.TestOneActivity" />
+        <activity android:name=".activity.ListOfSongsActivity" />
         <activity android:name=".activity.SecondActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
@@ -26,7 +29,6 @@
             android:name=".sevice.MusicService"
             android:enabled="true"
             android:exported="true" />
-
     </application>
 
 </manifest>
