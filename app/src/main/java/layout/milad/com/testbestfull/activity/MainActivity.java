@@ -24,8 +24,6 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ClickEventHandler clickEventHandler;
-
     @BindView(R.id.btn_get_all_data)
     Button btn1;
     @BindView(R.id.btn_music)
@@ -36,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
     Button btn4;
     @BindView(R.id.btn_5)
     Button btn5;
+    @BindView(R.id.btn_6)
+    Button btn6;
+
+    private ClickEventHandler clickEventHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,5 +101,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RoomTest.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

@@ -18,9 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="100dp"
             android:background="#FF9800"
-            android:text="get data users"/>
+            android:text="get data users" />
 
         <Button
             android:id="@+id/btn_music"
@@ -29,7 +29,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:background="#FF9800"
-            android:text="Music"/>
+            android:text="Music" />
 
         <Button
             android:id="@+id/btn_call"
@@ -38,7 +38,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:background="#FF9800"
-            android:text="dialog"/>
+            android:text="dialog" />
 
         <Button
             android:id="@+id/btn_4"
@@ -47,7 +47,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:background="#FF9800"
-            android:text="send"/>
+            android:text="send" />
 
         <Button
             android:id="@+id/btn_5"
@@ -56,9 +56,16 @@
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:background="#FF9800"
-            android:text="Frag one"/>
+            android:text="Frag one" />
 
-
+        <Button
+            android:id="@+id/btn_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="#FF9800"
+            android:text="Room Test" />
 
 
     </LinearLayout>

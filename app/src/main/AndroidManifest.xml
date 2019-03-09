@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.BotikActivity"></activity>
+        <activity android:name=".activity.RoomTest"></activity>
+        <activity android:name=".activity.BotikActivity" />
         <activity android:name=".activity.TestTwoActivity" />
         <activity android:name=".activity.TestOneActivity" />
         <activity android:name=".activity.ListOfSongsActivity" />

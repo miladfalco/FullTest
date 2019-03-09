@@ -1,31 +1,29 @@
-package layout.milad.com.testbestfull.models;
+package layout.milad.com.testbestfull.storage;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
-@Entity(tableName = "one user")
-public class User implements Serializable {
+@Entity(tableName = "user")
+public class DataModelUser implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
-    @SerializedName("id")
+    @ColumnInfo(name = "id")
     private int id;
-
     @ColumnInfo(name = "first_name")
-    @SerializedName("first_name")
     private String firstName;
-
     @ColumnInfo(name = "last_name")
-    @SerializedName("last_name")
     private String lastName;
-
     @ColumnInfo(name = "avatar")
-    @SerializedName("avatar")
-    private String avater;
+    private String avatar;
+
+    public DataModelUser(String firstName, String lastName, String avatar) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.avatar = avatar;
+    }
 
     public int getId() {
         return id;
@@ -51,11 +49,11 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getAvater() {
-        return avater;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setAvater(String avater) {
-        this.avater = avater;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }
