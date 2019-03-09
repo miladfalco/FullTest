@@ -18,6 +18,7 @@ import java.util.List;
 import layout.milad.com.testbestfull.R;
 import layout.milad.com.testbestfull.models.Data;
 import layout.milad.com.testbestfull.models.DataModel;
+import layout.milad.com.testbestfull.network.CallNetworkImpL;
 import layout.milad.com.testbestfull.network.RetrofitClient;
 import layout.milad.com.testbestfull.network.ServiceApi;
 import layout.milad.com.testbestfull.storage.AppDatabase;
@@ -33,6 +34,7 @@ public class RoomTest extends AppCompatActivity {
     private ImageView imageView;
     private AppDatabase database;
     private DataModelUser dataModelUser;
+    private CallNetworkImpL callNetworkImpL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

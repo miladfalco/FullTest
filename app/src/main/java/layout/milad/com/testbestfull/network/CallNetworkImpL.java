@@ -2,10 +2,10 @@ package layout.milad.com.testbestfull.network;
 
 import android.content.Context;
 
+
 import java.util.List;
 
-import layout.milad.com.testbestfull.models.DataUser;
-import layout.milad.com.testbestfull.models.User;
+import layout.milad.com.testbestfull.models.DataModel;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 
@@ -27,24 +27,25 @@ public class CallNetworkImpL implements CallNetwork {
         return INSTANCE;
     }
 
+
     @Override
-    public Call<User> user() {
+    public Call<DataModel> getCallUser() {
+        return serviceApi.getUser();
+
+    }
+
+    @Override
+    public Call<DataModel> getUsers(int page) {
         return null;
     }
 
     @Override
-    public Call<DataUser> getUsers(int page) {
+    public Call<DataModel> getUser(int id) {
         return null;
     }
 
     @Override
-    public Call<User> getUser(int id) {
-        return null;
-    }
-
-
-    @Override
-    public Call<List<User>> getAllUser() {
+    public Call<List<DataModel>> getAllUser() {
         return null;
     }
 }

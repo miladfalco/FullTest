@@ -2,17 +2,17 @@ package layout.milad.com.testbestfull.network;
 
 import java.util.List;
 
-import layout.milad.com.testbestfull.models.DataUser;
-import layout.milad.com.testbestfull.models.User;
+
+import layout.milad.com.testbestfull.models.DataModel;
 import retrofit2.Call;
 
 public interface CallNetwork {
 
-    Call<User> user();
+    Call<DataModel> getCallUser();
 
-    Call<DataUser> getUsers(int page);
+    Call<DataModel> getUsers(int page);
 
-    Call<User> getUser(int id);
+    Call<DataModel> getUser(int id);
 
-    Call<List<User>> getAllUser();
+    Call<List<DataModel>> getAllUser();
 }
