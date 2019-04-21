@@ -74,32 +74,32 @@ public class RoomTest extends AppCompatActivity {
 
 
     private void getDataOfServer() {
-        ServiceApi serviceApi = RetrofitClient.getINSTANCE().create(ServiceApi.class);
-        Call<DataModel> user = serviceApi.getUser();
-        user.enqueue(new Callback<DataModel>() {
-            @Override
-            public void onResponse(Call<DataModel> call, Response<DataModel> response) {
-                progressDialog.dismiss();
-                DataModel body = response.body();
-                Data data = body.getData();
-                final String firstName = data.getFirstName();
-                final String lastName = data.getLastName();
-                final String avatar = data.getAvatar();
-//                Log.i("==>", "onResponse: " + firstName);
-                txt1.setText(firstName);
-                txt2.setText(lastName);
-                Glide.with(RoomTest.this).load(avatar).into(imageView);
-//                dataModelUser = new DataModelUser(firstName);
-                database.userDao().insertOneUser(new DataModelUser(firstName, lastName, avatar));
-
-
-            }
-
-            @Override
-            public void onFailure(Call<DataModel> call, Throwable t) {
-
-            }
-        });
+//        ServiceApi serviceApi = RetrofitClient.getINSTANCE().create(ServiceApi.class);
+//        Call<DataModel> user = serviceApi.getUser();
+//        user.enqueue(new Callback<DataModel>() {
+//            @Override
+//            public void onResponse(Call<DataModel> call, Response<DataModel> response) {
+//                progressDialog.dismiss();
+//                DataModel body = response.body();
+//                Data data = body.getData();
+//                final String firstName = data.getFirstName();
+//                final String lastName = data.getLastName();
+//                final String avatar = data.getAvatar();
+////                Log.i("==>", "onResponse: " + firstName);
+//                txt1.setText(firstName);
+//                txt2.setText(lastName);
+//                Glide.with(RoomTest.this).load(avatar).into(imageView);
+////                dataModelUser = new DataModelUser(firstName);
+//                database.userDao().insertOneUser(new DataModelUser(firstName, lastName, avatar));
+//
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<DataModel> call, Throwable t) {
+//
+//            }
+//        });
 
     }
 

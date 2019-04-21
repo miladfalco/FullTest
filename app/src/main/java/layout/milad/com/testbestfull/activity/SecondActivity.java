@@ -10,6 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import layout.milad.com.testbestfull.R;
 import layout.milad.com.testbestfull.adapter.UserAdapter;
 import layout.milad.com.testbestfull.adapter.UserRoomAdapter;
@@ -66,38 +70,59 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        ServiceApi serviceApi = RetrofitClient.getINSTANCE().create(ServiceApi.class);
-        Call<DataUser> allUsers = serviceApi.getAllUsers(2);
-        allUsers.enqueue(new Callback<DataUser>() {
-            @Override
-            public void onResponse(Call<DataUser> call, Response<DataUser> response) {
-                if (response != null) {
-                    progressDialog.dismiss();
-                    userList = response.body().getGetUser();
-                    initViews();
-                    insertDbAllUser(userList);
-//                    List<User> getUser = response.body().getGetUser();
-//                    User user = getUser.get(0);
-//                    String firstName = user.getFirstName();
-//                    String lastName = user.getLastName();
-//                    String avater = user.getAvater();
-//                    dataModelUser.setFirstName(firstName);
-//                    dataModelUser.setLastName(lastName);
-//                    dataModelUser.setAvatar(avater);
-//                    insertDatabase(dataModelUser);
-                } else {
-                    progressDialog.dismiss();
-                    getAllUser();
-                    initViews();
-                }
 
-            }
+        RetrofitClient.getINSTANCE().create(ServiceApi.class).getAllUsers(2)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<DataUser>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-            @Override
-            public void onFailure(Call<DataUser> call, Throwable t) {
+                    }
 
-            }
-        });
+                    @Override
+                    public void onNext(DataUser value) {
+                        progressDialog.dismiss();
+                        userList = value.getGetUser();
+                        initViews();
+                        insertDbAllUser(userList);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        progressDialog.dismiss();
+                        getAllUser();
+                        initViews();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+
+//        ServiceApi serviceApi = RetrofitClient.getINSTANCE().create(ServiceApi.class);
+//        Call<DataUser> allUsers = serviceApi.getAllUsers(2);
+//        allUsers.enqueue(new Callback<DataUser>() {
+//            @Override
+//            public void onResponse(Call<DataUser> call, Response<DataUser> response) {
+//                if (response != null) {
+//                    progressDialog.dismiss();
+//                    userList = response.body().getGetUser();
+//                    initViews();
+//                    insertDbAllUser(userList);
+//                } else {
+
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<DataUser> call, Throwable t) {
+//
+//            }
+//        });
     }
 
     private void insertDatabaseUser(User user) {

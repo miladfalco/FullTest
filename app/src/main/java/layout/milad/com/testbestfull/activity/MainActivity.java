@@ -10,6 +10,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import layout.milad.com.testbestfull.R;
 import layout.milad.com.testbestfull.callback.ClickEventHandler;
 import layout.milad.com.testbestfull.callback.DialogCall;
@@ -65,24 +70,54 @@ public class MainActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ServiceApi serviceApi = RetrofitClient.getINSTANCE().create(ServiceApi.class);
-                Call<DataUser> allUsers = serviceApi.getAllUsers(2);
-                allUsers.enqueue(new Callback<DataUser>() {
-                    @Override
-                    public void onResponse(Call<DataUser> call, Response<DataUser> response) {
 
-                        List<User> getUser = response.body().getGetUser();
-                        User user = getUser.get(0);
-                        String firstName = user.getFirstName();
-                        DialogCall dialogCall = new DialogCall(firstName, clickEventHandler, MainActivity.this);
-                        dialogCall.dialogBuild();
-                    }
+                RetrofitClient.getINSTANCE().create(ServiceApi.class).getAllUsers(2)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Observer<DataUser>() {
+                            @Override
+                            public void onSubscribe(Disposable d) {
 
-                    @Override
-                    public void onFailure(Call<DataUser> call, Throwable t) {
+                            }
 
-                    }
-                });
+                            @Override
+                            public void onNext(DataUser value) {
+                                List<User> getUser = value.getGetUser();
+                                User user = getUser.get(0);
+                                String firstName = user.getFirstName();
+                                DialogCall dialogCall = new DialogCall(firstName, clickEventHandler, MainActivity.this);
+                                dialogCall.dialogBuild();
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+
+                            }
+
+                            @Override
+                            public void onComplete() {
+
+                            }
+                        });
+
+//                ServiceApi serviceApi = RetrofitClient.getINSTANCE().create(ServiceApi.class);
+//                Call<DataUser> allUsers = serviceApi.getAllUsers(2);
+//                allUsers.enqueue(new Callback<DataUser>() {
+//                    @Override
+//                    public void onResponse(Call<DataUser> call, Response<DataUser> response) {
+//
+//                        List<User> getUser = response.body().getGetUser();
+//                        User user = getUser.get(0);
+//                        String firstName = user.getFirstName();
+//                        DialogCall dialogCall = new DialogCall(firstName, clickEventHandler, MainActivity.this);
+//                        dialogCall.dialogBuild();
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<DataUser> call, Throwable t) {
+//
+//                    }
+//                });
             }
         });
 
